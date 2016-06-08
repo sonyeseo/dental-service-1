@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="ko" ng-app="myApp">
+
+  <head>
+    <!--meta에 설정하는 경우-->
+	<meta http-equiv="Content-Language" content="ko" >
+	
+	<!--html5 언어설정-->
+    <meta charset="UTF-8">
+	
+	<!--모바일 웹을 위한 설정-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!--웹 문서에 대한 제작자 설정-->
+	<meta name="author" content="firstsoft">
+	
+	<!--웹 문서에 대한 설명 설정-->
+	<meta name="description" content="파라메딕 로그인 페이지입니다.">
+	
+	<!--웹 문서에 대한 키워드 설정-->
+	<meta name="keywords" content="파라메딕,치과,보험>
+	
+	<!--최신 버젼으로 동작-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+    <title>라우터 페이지</title>
+    
+      <!--부트스트랩-->
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+      <!--폰트어썸-->
+	  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+
+	  
+      <!--angular모듈-->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js"></script>
+
+      <script src="http://code.angularjs.org/1.2.16/angular-resource.js"></script>
+      <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.2.5.js"></script>
+
+    
+	<!--부트스트랩-->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <!--폰트어썸-->
+	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+    <!---ngsortable-->
+	<link rel="stylesheet" href="bower_components/ng-sortable/dist/ng-sortable.css">
+    <!--veasyttable-->
+	<link rel="stylesheet" href="bower_components/angular-veasy-table/dist/css/veasy-table.min.css">
+
+	<!--css-->
+	<link rel="stylesheet" href="css/dentalRouter.css">
+
+
+
+  </head>
+    <body ng-controller="mainController">
+	
+		<div id="wrap-content" class="wrap-content"><!--wrapcontent-->
+
+			<div class="aside"><!--왼쪽-->
+				<a href="#" class="btn-logo"><img src="img/logop.png"/></a>
+				
+				<!--animated menu motion-->
+				<div class="container">
+					<div class="bar1"></div>
+					<div class="bar2"></div>
+					<div class="bar3"></div>
+				</div>
+				<!--//animated menu motion-->
+
+				<!--아이콘 카드-->
+				<a class="btn-profile" href="#"><img src="img/icon-account.svg"/></a>
+				
+				<!--fixed-->
+				<span class="toggle-fixed fa fa-thumb-tack" data-toggle="tooltip" data-placement="top" title="Fixed top">
+				</span>
+			</div><!--//왼쪽-->
+			
+
+		
+			<div class="header"><!--header-->
+			
+				<div class="unit title"><!--헤더타이틀-->
+					<h5 class="primary font-weight-700">Paramedic</h5>
+				</div><!--//헤더타이틀-->
+				
+				<!--시간-->
+				<div class="unit time">
+					<span class="current-time"></span>
+					<span class="current-date"></span>					
+				</div>
+				
+				<!--unit backet-->
+				<div class="unit backet">
+					<span class="side-btn" id="side-btn">
+						<i class="fa fa-th" aria-hidden="true"></i>
+					</span>
+				</div>
+							
+				
+			</div><!--//header-->
+			
+			<div class="content container-fluid"><!--중심화면-->
+			
+
+				<nav class="sub_menu">
+				  <div class="sub_container">
+					<div class="sub_name">
+					  <a class="sub_brand" href="#">본사 관리 프로그램</a>
+					</div>
+
+					<ul class="sub_menu_list">
+					  <li><a href="#home"><i class="fa fa-home"></i>Home</a></li>
+					  <li><a href="#denReg"><i class="fa fa-medkit"></i>신규치과등록</a></li>
+					  <li><a href="#denSrch"><i class="fa fa-search"></i>치과검색</a></li>
+					  <li><a href="#memReg/"><i class="fa fa-refresh"></i>신규고객등록</a></li>
+					  <li><a href="#nasgnMemSrch"><i class="fa fa-list-ul"></i>미배정고객</a></li>
+					  <li><a href="#asgnMemSrch"><i class="fa fa-folder-open-o"></i>배정고객</a></li>
+					  <li><a href="#cmpltMemSrch"><i class="fa fa-users"></i>완료고객</a></li>
+					  <li><a href="#logOut"><i class="fa fa-sign-out"></i>로그아웃</a></li>
+					</ul>
+				  </div>
+				</nav>
+				
+
+
+				
+
+				
+			</div><!--//중심화면-->
+		
+		</div><!--//wrapcontent-->		
+
+
+
+	
+	<!--중간화면-->
+    <div id="middle_main">
+      <!--메시지-->
+	  <div ng-view>
+	  <!--<span class="middle_main_w">
+	  치과 파라메딕 페이지입니다.
+	  </span>-->
+	  </div>
+    </div>
+
+    <!--자바스크립트-->
+	
+	<!--제이쿼리-->
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <!--angular-->
+	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <!--ui부트스트랩-->
+    <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <!--ui부트스트랩 tpls-->
+	<script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!--ng sortable-->
+    <script type="text/javascript" src="bower_components/ng-sortable/dist/ng-sortable.js"></script>
+    <!--veasy-table-->
+    <script type="text/javascript" src="bower_components/angular-veasy-table/dist/js/veasy-table.js"></script>
+    <!--veasy-table-tpls-->
+	<script type="text/javascript" src="bower_components/angular-veasy-table/dist/js/veasy-table-tpls.js"></script>
+	<!--moment-->
+	<script src="js/moment.min.js"></script>
+	<!--ui-->
+	<script src="js/ui.js"></script>	
+
+  <script>
+// script.js
+
+    // create the module and name it scotchApp
+    // also include ngRoute for all our routing needs
+    //var app = angular.module('myApp', ['ngRoute','ui.bootstrap', 'ngAnimate', 'ngResource','siTable']);
+    var app = angular.module('myApp', ['ngRoute','ui.bootstrap', 'ngAnimate', 'ngResource', 'veasyTable']);
+
+    // configure our routes
+    app.config(function($routeProvider) {
+        $routeProvider
+
+          // route for the home page
+          .when('/', {
+              templateUrl : 'pages/admin/home.html',
+              controller  : 'mainController'
+          })
+
+          // route for the home page
+          .when('/denReg', {
+              templateUrl : 'pages/admin/denReg.html',
+              controller  : 'denRegController',
+              data : 'Dental Registariotn'
+          })
+
+          // route for the about page
+          .when('/denSrch', {
+              templateUrl : 'pages/admin/denSrch.html',
+              controller  : 'denSrchController',
+              data : 'Dental Search'
+          })
+
+          // route for the contact page
+          .when('/memReg', {
+              templateUrl : 'pages/admin/memReg.html',
+              controller  : 'memRegController',
+              data : 'Member Registration'
+          })
+        
+
+          // route for the home page
+          .when('/nasgnMemSrch', {
+              templateUrl : 'pages/admin/nasgnMemSrch.html',
+              controller  : 'nasgnMemSrchController',
+              data : 'Not assign member Search'
+          })
+
+          // route for the about page
+          .when('/asgnMemSrch', {
+              templateUrl : 'pages/admin/asgnMemSrch.html',
+              controller  : 'asgnMemSrchController',
+              data : 'Assign Member Search'
+          })
+
+          // route for the contact page
+          .when('/cmpltMemSrch', {
+              templateUrl : 'pages/admin/cmpltMemSrch.html',
+              controller  : 'cmpltMemSrchController',
+              data : 'Complete Member Search'
+          })
+
+           // route for the contact page
+          .when('/logOut', {
+              templateUrl : 'pages/admin/logOut.html',
+              controller  : 'logOutController',
+              data : 'Logout'
+          });
+
+         // $locationProvider.html5Mode(true);
+
+    });
+
+    app.directive('krInput', [ '$parse', function($parse) {
+
+      return {
+        priority : 2,
+        restrict : 'A',
+        compile : function(element) {
+            element.on('compositionstart', function(e) {
+                e.stopImmediatePropagation();
+            });
+        },
+      };
+
+    }]);
+
+    app.factory('peopleService', function ($http, $q, $timeout) {
+
+      return {
+        nAsgn: function (callback) {
+          var nasgn_deferred = $q.defer();
+
+          $timeout(function () {
+            //$http.get('pages/js/people.json').success(function (data) {
+            $http.get('/srchMemInfoNasgned').success(function (data) {
+              nasgn_deferred.resolve(data);
+            });
+          }, 500);
+
+          return nasgn_deferred.promise;
+        },
+        asgn: function (callback) {
+          var asgn_deferred = $q.defer();
+
+          $timeout(function () {
+            //$http.get('pages/js/people.json').success(function (data) {
+            $http.get('/srchMemInfoAsgned').success(function (data) {
+              asgn_deferred.resolve(data);
+            });
+          }, 500);
+
+          return asgn_deferred.promise;
+        },
+        cmplt: function (callback) {
+          var asgn_deferred = $q.defer();
+
+          $timeout(function () {
+            //$http.get('pages/js/people.json').success(function (data) {
+            //$http.get('/srchMemberInfoAsgn').success(function (data) {
+            $http.get('/adminSrchMemInfoCmplted').success(function (data) {
+              asgn_deferred.resolve(data);
+            });
+          }, 500);
+
+          return asgn_deferred.promise;
+        },
+        getMemInfo: function (name, mobile, callback) {
+          var asgn_deferred = $q.defer();
+
+          $timeout(function () {
+            //$http.get('pages/js/people.json').success(function (data) {
+            //$http.get('/srchMemberInfoAsgn').success(function (data) {
+            //$http.get('/dentalGetMemberInfoCmplt').success(function (data) {
+            $http.get('/adminGetMemInfoCmplted',{
+              params: {
+                name: name,
+                mobile: mobile
+                }
+            }).success(function(data){
+              asgn_deferred.resolve(data);
+            });
+          }, 500);
+
+          return asgn_deferred.promise;
+        }
+      }
+    });
+
+
+    app.service('dataService', function($http) {
+      //delete $http.defaults.headers.common['X-Requested-With'];
+      this.regDentalInfo = function(dentid, dentpwd, dentname, doctname, address, mobile, tel, callbackFunc) {
+        
+        $http.get('/regDentalInfo', {
+          params: {
+              dentid: dentid,
+              dentpwd: dentpwd,
+              dentname: dentname,
+              doctname: doctname,
+              address: address,
+              mobile: mobile,
+              tel: tel
+          }
+        }).success(function(data){
+          // With the data succesfully returned, call our callback
+          callbackFunc(data);
+        }).error(function(){
+
+        });
+       
+      };
+
+      this.srchDentalInfo = function(dentname, mobile, callbackFunc) {
+        
+        $http.get('/srchDentalInfo',{
+          params: {
+              dentname: dentname,
+              mobile: mobile
+            }
+        }).success(function(data){
+          // With the data succesfully returned, call our callback
+          callbackFunc(data);
+        }).error(function(){
+        });
+       
+      };
+
+      this.regMemberInfo = function(name, birth, address, mobile, stat, dntl_key, callbackFunc) {
+        
+        $http.get('/regMemInfo', {
+          params: {
+            name: name,
+            birth: birth,
+            address: address,
+            mobile: mobile,
+            stat: stat,
+            dntl_key: dntl_key
+          }
+        }).success(function(data){
+          // With the data succesfully returned, call our callback
+          callbackFunc(data);
+        }).error(function(){
+        });
+       
+      };
+
+      this.asgnDentalToMem = function(name, birth, mobile, stat, dntl_name, dntl_mobile, callbackFunc) {
+        
+        $http.get('/asgnDentalToMem', {
+          params: {
+            memName: name,
+            memBirth: birth,
+            memMobile: mobile,
+            memStat: stat,
+            dntl_name: dntl_name,
+            dntl_mobile: dntl_mobile
+          }
+        }).success(function(data){
+          // With the data succesfully returned, call our callback
+          callbackFunc(data);
+        }).error(function(){
+        });
+       
+      };
+
+    });
+
+
+    // create the controller and inject Angular's $scope
+    app.controller('mainController', function($scope) {
+      // create a message to display in our view
+      $scope.message = '하이브리드 치아보험 홈페이지!';
+    });
+
+    // create the controller and inject Angular's $scope
+    app.controller('denRegController', function($scope, $route, dataService) {
+      // create a message to display in our view
+      $scope.message = '신규 치과 등록 페이지!';
+      $scope.msg = $route.current.data;
+
+      $scope.dentalid = 'v@v.com';
+      $scope.dentalpwd = '0000';
+      $scope.dentalname = '비젼메디컬';
+      $scope.doctorname = '사장님';
+      $scope.address = '경기도 판교동';
+      $scope.mobile = '010';
+      $scope.tel = '031';
+
+      $scope.saveDentalView = function(){
+        var dentid = $scope.dentalid;
+        var dentpwd = $scope.dentalpwd;
+        var dentname = $scope.dentalname;
+        var doctname = $scope.doctorname;
+        var address = $scope.address;
+        var mobile = $scope.mobile;
+        var tel = $scope.tel;
+
+        $scope.msg = dentid+' : '+dentpwd+' : '+dentname+' : '+doctname+' : '+address+' : '+mobile+' : '+tel;
+
+        dataService.regDentalInfo(dentid, dentpwd, dentname, doctname, address, mobile, tel, function(dataResponse) {
+
+          //$scope.test_string = dataResponse;
+          if(dataResponse == 'Success')
+          {
+              alert('Success');
+            //window.location.href = '/router' ;
+          }
+          else
+          {
+              alert('Fail');
+            //window.location.href = '/adminLogin' ;
+          }
+        });
+      };
+    });
+
+    // create the controller and inject Angular's $scope
+    app.controller('denSrchController', function($scope, $http, $route, dataService) {
+    //app.controller('denSrchController', function($scope, $http, $route) {
+      // create a message to display in our view
+      $scope.message = '치과 검색 페이지!';
+      $scope.msg = $route.current.data;
+
+      // Any function returning a promise object can be used to load values asynchronously
+      $scope.getDentalCode = function(val) {
+        return $http.get('/srchDentalByArg', {
+          params: {
+            name: val
+          }
+        }).then(function(response){
+          return response.data.map(function(item){
+            //$scope.testMemcode = response;
+            var obj = {};
+            obj.dentName = item.dentName;
+            obj.mobile = item.mobile;
+            return obj;
+            //return item.name;
+          });
+        });
+      };
+
+      $scope.onSelect = function ($item, $model, $label) {
+        //console.log($item);
+        if($item.dentName){
+           $scope.activeName = $item.dentName        
+           $scope.activeCode = $item.mobile        
+        }
+
+        dataService.srchDentalInfo($item.dentName, $item.mobile, function(dataResponse) {
+
+          //$scope.test_string = dataResponse;
+          $scope.objects = dataResponse;
+
+          $scope.totalItems = $scope.objects.length;
+          $scope.currentPage = 1;
+          $scope.numPerPage = 5;
+
+          $scope.paginate = function(value) {
+              var begin, end, index;
+              begin = ($scope.currentPage - 1) * $scope.numPerPage;
+              end = begin + $scope.numPerPage;
+              index = $scope.objects.indexOf(value);
+              return (begin <= index && index < end);
+          };
+
+        });
+      };
+    }); //denSrchController
+
+    // create the controller and inject Angular's $scope
+    app.controller('memRegController', function($scope, $route, dataService) {
+      // create a message to display in our view
+      $scope.message = '신규 회원 등록 페이지!';
+      $scope.msg = $route.current.data;
+
+      $scope.name = '이정재';
+      $scope.birth = '790102';
+      $scope.address = '서울';
+      $scope.mobile = '010';
+
+      $scope.saveMemberView = function(){
+        var name = $scope.name;
+        var birth = $scope.birth;
+        var address = $scope.address;
+        var mobile = $scope.mobile;
+        var stat = 0;
+        var dntl_key = 0;
+        $scope.msg = name+' : '+birth+' : '+address+' : '+mobile+' : '+stat+' : '+dntl_key;
+
+        dataService.regMemberInfo(name, birth, address, mobile, stat, dntl_key, function(dataResponse) {
+
+          //$scope.test_string = dataResponse;
+          if(dataResponse == 'Success')
+          {
+              alert('Success');
+          }
+          else
+          {
+              alert('Fail');
+          }
+
+        });
+
+      };
+    });
+
+    // create the controller and inject Angular's $scope
+    app.controller('nasgnMemSrchController', function($scope, $http, $route, $timeout, peopleService, dataService) {
+      // create a message to display in our view
+      $scope.message = '미배정 고객 리스트!';
+      $scope.msg = $route.current.data;
+
+    /***********************************************************/
+      var memName, memBirth, memMobile, memStat, dntl_name, dntl_mobile;
+
+      $scope.showUser = false;
+      $scope.people = [];
+      $scope.selecteds = [];
+
+      var init = function () {
+        $scope.config = {
+          id: 'veasy-table',
+          columns: [
+            { header: 'Index',         value: 'memIdx',          size: 5, show: true },
+            { header: 'Name', value: 'name',  size: 10, show: true },
+            { header: 'Birth',  value: 'birth',   size: 10, show: true },
+            { header: 'Address',      value: 'address',       size: 20, show: true },
+            { header: 'Mobile',    value: 'mobile',     size: 10, show: true }
+          ],
+          /*
+          columns: [
+            { header: 'Id',         value: 'id',          size: 5, show: true },
+            { header: 'First Name', value: 'first_name',  size: 40, show: true },
+            { header: 'Last Name',  value: 'last_name',   size: 40, show: true },
+            { header: 'Email',      value: 'email',       size: 0, show: false },
+            { header: 'Country',    value: 'country',     size: 0, show: false },
+            { header: 'IP',         value: 'ip_address',  size: 15, show: true }
+          ],
+          */
+          /*
+          checkbox: {
+            enable: true,
+            size: 20
+          },
+          */
+          pagination: {
+            enable: true,
+            currentPage: 0,
+            itemsPerPage: 10,
+          },
+          filter: {
+            enable: true,
+            conditional: false,
+            delay: 500
+          },
+          /*
+          columnFilter: {
+            enable: true,
+            autoOpen: true,
+            modalSize: 'md'
+          },
+          sort: {
+            enable: true
+          },
+          */
+          resizable: {
+            enable: true,
+            minimumSize: 5
+          },
+          events: {
+            onClickRow: function (row) {
+              //alert('Row Clicked: ' + JSON.stringify(row.memIdx) + 'Row Clicked: ' + JSON.stringify(row.name) + '. More details in your console.');
+              //console.log(JSON.stringify(row, null, 2));
+              //console.log('---------------------------------');
+              //console.log('');
+
+              if(row.memIdx != 0)
+              {
+                $scope.tUser = row.name;
+
+                memName = row.name ;
+                memBirth = row.birth ;
+                memMobile = row.mobile ;
+                memStat = 0;//row.stat ;
+
+                $scope.showUser = true;
+              }
+            },
+            onApplyColumnFilter: function (columns) {
+              //alert('Applied Columns! More details in your console.');
+              //console.log(JSON.stringify(columns, null, 2));
+              //console.log('---------------------------------');
+              //console.log('');
+            },
+            onTableStateChange: function (columns) {
+              //alert('State changed! More details in your console.');
+              //console.log(JSON.stringify(columns, null, 2));
+              //console.log('---------------------------------');
+              //console.log('');
+            }
+          }
+        };
+
+        peopleService.nAsgn().then(function (data) {
+          var count = data.length;
+          var memData = [];
+          var id , name , birth , add , mob , dntl ;
+
+          if(count == 0)
+          {
+            memData.push({"memIdx":'0',"name":'none',"birth":'none',"address":'none',"mobile":'none',"dental":'none'});
+            $scope.people = memData;
+          }
+          else
+          {
+            $scope.people = data;
+          }
+        });
+
+      };
+      init();
+    /*
+      $scope.addPerson = function (person) {
+        person.id = ($scope.people.length + 1);
+        $scope.people.push(person);
+        $scope.person = {};
+      };
+    */
+
+    /***********************************************************/
+
+    $scope.getDentalCode = function(val) {
+      return $http.get('/srchDentalByArg', {
+        params: {
+          name: val
+        }
+      }).then(function(response){
+        return response.data.map(function(item){
+
+          dntl_name = item.dentName;
+          dntl_mobile = item.mobile;
+
+          var obj = {};
+          obj.dentName = item.dentName;
+          obj.mobile = item.mobile;
+          return obj;
+        });
+      });
+    };
+
+    $scope.saveUser = function() {
+      //alert('Assign dental clinic to users'+$scope.obj.dentName+' '+$scope.obj.mobile+' '+$scope.tUser);
+
+      dataService.asgnDentalToMem(memName, memBirth, memMobile, memStat, dntl_name, dntl_mobile, function(dataResponse){
+
+        if(dataResponse == 'Success')
+        {
+          alert('Success');
+        }
+        else
+        {
+          alert('Fail');
+        }
+
+      });
+    };
+
+    $scope.clsShowUser = function() {
+      $scope.showUser = false;
+    };
+
+    $scope.hideDentalInfo = function() {
+      $scope.obj.dentName = null;
+      $scope.obj.mobile = null;
+      $scope.test_string = 'call hideDentalInfo';
+    };  
+
+    $scope.refreshUserList = function() {
+      peopleService.nAsgn().then(function (data) {
+        $scope.people = data;
+        $scope.test_string = 'call refreshUserList';
+      });
+    };
+
+
+    }); //nasgnMemSrchController
+
+    // create the controller and inject Angular's $scope
+    app.controller('asgnMemSrchController', function($scope, $http, $route, $timeout, peopleService, dataService) {
+      // create a message to display in our view
+      $scope.message = '배정 고객 리스트!';
+      $scope.msg = $route.current.data;
+
+
+    /***********************************************************/
+      var memName, memBirth, memMobile, memStat, dntl_name, dntl_mobile;
+
+      $scope.showUser = false;
+      $scope.people = [];
+      $scope.selecteds = [];
+
+      var init = function () {
+        $scope.config = {
+          id: 'veasy-table',
+          columns: [
+            { header: 'Index',         value: 'memIdx',          size: 5, show: true },
+            { header: 'Name', value: 'name',  size: 10, show: true },
+            { header: 'Birth',  value: 'birth',   size: 10, show: true },
+            { header: 'Address',      value: 'address',       size: 20, show: true },
+            { header: 'Mobile',    value: 'mobile',     size: 10, show: true },
+            { header: 'Dental',    value: 'dental',     size: 10, show: true }
+          ],
+          /*
+          columns: [
+            { header: 'Id',         value: 'id',          size: 5, show: true },
+            { header: 'First Name', value: 'first_name',  size: 40, show: true },
+            { header: 'Last Name',  value: 'last_name',   size: 40, show: true },
+            { header: 'Email',      value: 'email',       size: 0, show: false },
+            { header: 'Country',    value: 'country',     size: 0, show: false },
+            { header: 'IP',         value: 'ip_address',  size: 15, show: true }
+          ],
+          */
+          /*
+          checkbox: {
+            enable: true,
+            size: 20
+          },
+          */
+          pagination: {
+            enable: true,
+            currentPage: 0,
+            itemsPerPage: 10,
+          },
+          filter: {
+            enable: true,
+            conditional: false,
+            delay: 500
+          },
+          /*
+          columnFilter: {
+            enable: true,
+            autoOpen: true,
+            modalSize: 'md'
+          },
+          sort: {
+            enable: true
+          },
+          */
+          resizable: {
+            enable: true,
+            minimumSize: 5
+          },
+          events: {
+            onClickRow: function (row) {
+              //alert('Row Clicked: ' + JSON.stringify(row.id) + 'Row Clicked: ' + JSON.stringify(row.first_name) + '. More details in your console.');
+              //alert('Row Clicked: ' + JSON.stringify(row.memIdx) + 'Row Clicked: ' + JSON.stringify(row.name) + '. More details in your console.');
+              //console.log(JSON.stringify(row, null, 2));
+              //console.log('---------------------------------');
+              //console.log('');
+
+              if(row.memIdx != 0)
+              {
+                $scope.tUser = row.name;
+
+                memName = row.name ;
+                memBirth = row.birth ;
+                memMobile = row.mobile ;
+                memStat = 1;//row.stat ;
+
+                $scope.showUser = true;
+              }
+            },
+            onApplyColumnFilter: function (columns) {
+              //alert('Applied Columns! More details in your console.');
+              //console.log(JSON.stringify(columns, null, 2));
+              //console.log('---------------------------------');
+              //console.log('');
+            },
+            onTableStateChange: function (columns) {
+              //alert('State changed! More details in your console.');
+              //console.log(JSON.stringify(columns, null, 2));
+              //console.log('---------------------------------');
+              //console.log('');
+            }
+          }
+        };
+
+        peopleService.asgn().then(function (data) {
+          var count = data.length;
+          var memData = [];
+          var id , name , birth , add , mob , dntl ;
+
+          if(count == 0)
+          {
+            memData.push({"memIdx":'0',"name":'none',"birth":'none',"address":'none',"mobile":'none',"dental":'none'});
+            $scope.people = memData;
+          }
+          else
+          {
+            for (i in data)
+            {
+              id = data[i].memIdx;
+              name = data[i].name;
+              birth = data[i].birth;
+              add = data[i].address;
+              mob = data[i].mobile;
+              dntl = data[i].dntl_key.dentName;
+              memData.push({"memIdx":id,"name":name,"birth":birth,"address":add,"mobile":mob,"dental":dntl});
+            }
+            $scope.people = memData;
+          }
+        });
+
+      };
+      init();
+/*
+      $scope.addPerson = function (person) {
+        person.id = ($scope.people.length + 1);
+        $scope.people.push(person);
+        $scope.person = {};
+      };
+*/
+
+    /***********************************************************/
+
+      $scope.getDentalCode = function(val) {
+        return $http.get('/srchDentalByArg', {
+          params: {
+            name: val
+          }
+        }).then(function(response){
+          return response.data.map(function(item){
+            //$scope.testMemcode = response;
+
+            dntl_name = item.dentName;
+            dntl_mobile = item.mobile;
+
+            var obj = {};
+            obj.dentName = item.dentName;
+            obj.mobile = item.mobile;
+            return obj;
+          });
+        });
+      };
+
+      $scope.saveUser = function() {
+        //alert('Assign dental clinic to users'+$scope.obj.dentName+' '+$scope.obj.mobile+' '+$scope.tUser);
+
+        dataService.asgnDentalToMem(memName, memBirth, memMobile, memStat, dntl_name, dntl_mobile, function(dataResponse) {
+
+          $scope.test_string = dataResponse;
+          if(dataResponse == 'Success')
+          {
+              alert('Success');
+            //window.location.href = '/router' ;
+          }
+          else
+          {
+              alert('Fail');
+            //window.location.href = '/adminLogin' ;
+          }
+        });
+      };
+
+      $scope.clsShowUser = function() {
+        $scope.showUser = false;
+      };
+
+      $scope.hideDentalInfo = function() {
+        $scope.obj.dentName = null;
+        $scope.obj.mobile = null;
+        $scope.test_string = 'call hideDentalInfo';
+      };  
+
+      $scope.refreshUserList = function() {
+        peopleService.asgn().then(function (data) {
+          var count = data.length;
+          var memData = [];
+          var id , name , birth , add , mob , dntl ;
+
+          if(count == 0)
+          {
+            memData.push({"memIdx":'0',"name":'none',"birth":'none',"address":'none',"mobile":'none',"dental":'none'});
+            $scope.people = memData;
+          }
+          else
+          {
+            for (i in data)
+            {
+              id = data[i].memIdx;
+              name = data[i].name;
+              birth = data[i].birth;
+              add = data[i].address;
+              mob = data[i].mobile;
+              dntl = data[i].dntl_key.dentName;
+              memData.push({"memIdx":id,"name":name,"birth":birth,"address":add,"mobile":mob,"dental":dntl});
+            }
+            $scope.people = memData;
+          }
+        });
+      };
+    });//asgnMemSrchController
+
+    // create the controller and inject Angular's $scope
+    app.controller('cmpltMemSrchController', function($scope, $http, $route, $timeout, peopleService, dataService) {
+      // create a message to display in our view
+      $scope.message = '완료 고객 리스트!';
+      $scope.msg = $route.current.data;
+
+      /***********************************************************/
+      var memName, memBirth, memMobile, memStat, dntl_name, dntl_mobile;
+
+      $scope.showUser = false;
+      $scope.people = [];
+      $scope.selecteds = [];
+
+      var init = function () {
+        $scope.config = {
+          id: 'veasy-table',
+          columns: [
+            { header: 'Index',         value: 'memIdx',          size: 5, show: true },
+            { header: 'Name', value: 'name',  size: 10, show: true },
+            { header: 'Birth',  value: 'birth',   size: 10, show: true },
+            { header: 'Address',      value: 'address',       size: 20, show: true },
+            { header: 'Mobile',    value: 'mobile',     size: 10, show: true },
+            { header: 'Dental',    value: 'dental',     size: 10, show: true }
+          ],
+          /*
+          checkbox: {
+            enable: true,
+            size: 20
+          },
+          */
+          pagination: {
+            enable: true,
+            currentPage: 0,
+            itemsPerPage: 10,
+          },
+          filter: {
+            enable: true,
+            conditional: false,
+            delay: 500
+          },
+          /*
+          columnFilter: {
+            enable: true,
+            autoOpen: true,
+            modalSize: 'md'
+          },
+          sort: {
+            enable: true
+          },
+          */
+          resizable: {
+            enable: true,
+            minimumSize: 5
+          },
+          events: {
+            onClickRow: function (row) {
+              //alert('Row Clicked: ' + JSON.stringify(row.id) + 'Row Clicked: ' + JSON.stringify(row.first_name) + '. More details in your console.');
+              //alert('Row Clicked: ' + JSON.stringify(row.memIdx) + 'Row Clicked: ' + JSON.stringify(row.name) + '. More details in your console.');
+              //console.log(JSON.stringify(row, null, 2));
+              //console.log('---------------------------------');
+              //console.log('');
+              $scope.memName = null ;
+              $scope.memBirth = null ;
+              $scope.memAddress = null ;
+              $scope.memMobile = null ;
+              $scope.dental = null ;
+              $scope.imgSrc = null;
+
+              if(row.memIdx != 0)
+              {
+                $scope.tUser = row.name;
+
+                memName = row.name ;
+                memBirth = row.birth ;
+                memMobile = row.mobile ;
+                memStat = 1;//row.stat ;
+
+                $scope.memName = row.name ;
+                $scope.memBirth = row.birth ;
+                $scope.memAddress = row.address ;
+                $scope.memMobile = row.mobile ;
+                $scope.dental = row.dental ;
+
+                peopleService.getMemInfo(row.name, row.mobile).then(function (data) {
+                  $scope.imgSrc = data;
+                });
+
+                $scope.showUser = true;
+              }
+            },
+            onApplyColumnFilter: function (columns) {
+              //alert('Applied Columns! More details in your console.');
+              //console.log(JSON.stringify(columns, null, 2));
+              //console.log('---------------------------------');
+              //console.log('');
+            },
+            onTableStateChange: function (columns) {
+              //alert('State changed! More details in your console.');
+              //console.log(JSON.stringify(columns, null, 2));
+              //console.log('---------------------------------');
+              //console.log('');
+            }
+          }
+        };
+
+        peopleService.cmplt().then(function (data) {
+          var count = data.length;
+          var memData = [];
+          var id , name , birth , add , mob , dntl ;
+
+          if(count == 0)
+          {
+            memData.push({"memIdx":'0',"name":'none',"birth":'none',"address":'none',"mobile":'none',"dental":'none'});
+            $scope.people = memData;
+          }
+          else
+          {
+            for (i in data)
+            {
+              id = data[i].memIdx;
+              name = data[i].name;
+              birth = data[i].birth;
+              add = data[i].address;
+              mob = data[i].mobile;
+              dntl = data[i].dntl_key.dentName;
+              memData.push({"memIdx":id,"name":name,"birth":birth,"address":add,"mobile":mob,"dental":dntl});
+            }
+            $scope.people = memData;
+            //$scope.test_string = memData;
+          }
+        });
+
+      };
+
+      init();
+      /*
+      $scope.addPerson = function (person) {
+        person.id = ($scope.people.length + 1);
+        $scope.people.push(person);
+        $scope.person = {};
+      };
+      */
+
+      /***********************************************************/
+
+      $scope.clsShowUser = function() {
+        $scope.showUser = false;
+      };
+    });//cmpltMemSrchController
+
+    // create the controller and inject Angular's $scope
+    app.controller('logOutController', function($scope, $route) {
+      // create a message to display in our view
+      $scope.message = 'Goodbye!';
+      $scope.msg = $route.current.data;
+      
+      window.location.href = '/adminLogout' ;
+    });
+
+  </script>
+
+
+</body>
+</html>
+
+

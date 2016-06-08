@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko" ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%= title %></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+      <!-- SCROLLS -->
+      <!-- load bootstrap and fontawesome via CDN -->
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+
+      <!-- SPELLS -->
+      <!-- load angular and angular route via CDN -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+
+  </head>
+    <body ng-controller="mainController">
+
+<p>
+    이 름 : <input type="text" ng-model="doctorname"/> <br/>
+    주 소  : <input type="text" ng-model="address"/> <br/>
+    휴대폰 : <input type="text" ng-model="mobile"/> <br/>
+    <button ng-click="saveView()">Save View</button>
+</p>
+
+<div>
+{{msg}}
+</div>
+
+  <script>
+// script.js
+
+    // create the controller and inject Angular's $scope
+    var app = angular.module('myApp', []);
+    app.controller('mainController', function($scope) {
+        // create a message to display in our view
+
+        $scope.saveView = function(){
+            var doctname = $scope.doctorname;
+            var address = $scope.address;
+            var mobile = $scope.mobile;
+            $scope.msg = doctname+' : '+address+' : '+mobile;
+        };
+
+    });
+
+  </script>
+</body>
+</html>
+
+

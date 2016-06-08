@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html ng-app="adminApp">
+  <head>
+  
+    <!--meta에 설정하는 경우-->
+	<meta http-equiv="Content-Language" content="ko" >
+	
+	<!--html5 언어설정-->
+    <meta charset="UTF-8">
+	
+	<!--모바일 웹을 위한 설정-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!--웹 문서에 대한 제작자 설정-->
+	<meta name="author" content="firstsoft">
+	
+	<!--웹 문서에 대한 설명 설정-->
+	<meta name="description" content="파라메딕 로그인 페이지입니다.">
+	
+	<!--웹 문서에 대한 키워드 설정-->
+	<meta name="keywords" content="파라메딕,치과,보험>
+	
+	<!--모바일 웹을 위한 설정-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	
+	<!--브라우저 호환성 설정-->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	
+	<!--HTML5 Shiv -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<![endif]-->
+
+
+    <title>로그인 페이지</title>
+
+	  <!--부트스트랩-->
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+	  <!--폰트어썸-->
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+
+	  <!--로그인-->
+	  <link rel="stylesheet" href="css/login.css">
+	  
+      <!-- load angular -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script> 
+  </head>
+  
+  
+  
+  <body ng-controller="mainCtrl">
+  
+	<div class="wrapper"><!--wrapper-->	
+
+		<div class="container"><!--container-->
+		  <h1>로그인 페이지 입니다.</h1>
+		  
+		  <form class="form"  name="adminLoginForm" novalidate>
+			<input type="text" name="username" placeholder="아이디" ng-model="username" ng-required="true" autocomplete="off"/> <br/>
+			<span style="color:red" ng-show="adminLoginForm.username.$dirty && adminLoginForm.username.$invalid">
+			<span ng-show="adminLoginForm.username.$error.required">adminName 이 필요합니다.</span>
+			</span>
+			
+			<input type="password" name="password" placeholder="패스워드" ng-model="password" ng-required="true" autocomplete="off"/> <br/>
+			<span style="color:red" ng-show="adminLoginForm.password.$dirty && adminLoginForm.password.$invalid">
+			<span ng-show="adminLoginForm.password.$error.required">password 이 필요합니다.</span>
+			</span>			
+			
+			<button ng-click="submit()" id="login-button" ng-disabled="adminLoginForm.username.$dirty && adminLoginForm.username.$invalid || adminLoginForm.password.$dirty && adminLoginForm.password.$invalid">로그인</button>
+		  </form>
+		  
+		</div><!--//container-->
+
+		<ul class="bg-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>			
+		</ul>				
+	
+	</div><!--//wrapper-->
+
+    {{test_string}}
+	
+	<!--자바스크립트-->
+    <!--<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="js/login.js"></script>--> 	
+
+    <script>
+    var app = angular.module('adminApp', []);
+
+    app.service('dataService', function($http) {
+      //delete $http.defaults.headers.common['X-Requested-With'];
+      this.checkLoginInfo = function(idStr, pwdStr, callbackFunc) {
+        
+        $http.get('/chkAdminLogin', {
+          params: {
+            id: idStr,
+            pwd: pwdStr
+            }
+          }).success(function(data){
+            callbackFunc(data);
+          }).error(function(){
+        });
+      };
+
+    });
+
+    app.controller('mainCtrl', function($scope, dataService) {
+    //app.controller('mainCtrl', function($scope, $http) {
+
+      $scope.username = 'admin1';
+      $scope.password = '1111';
+
+      $scope.submit = function(){
+              
+        var id = $scope.username;
+        var pwd = $scope.password;
+        
+        dataService.checkLoginInfo(id, pwd, function(dataResponse) {
+
+          $scope.test_string = dataResponse;
+          if(dataResponse == 'Success')
+          {
+            window.location.href = '/adminRouter' ;
+            //$window.location.href = "/adminRouter";
+          }
+          else
+          {
+            window.location.href = '/adminLogin' ;
+            //$window.location.href = "/adminLogin";
+          }
+
+        });
+     
+      };
+
+    });
+
+    /*
+    app.config(['$httpProvider', function($httpProvider) {
+      //initialize get if not there
+      if (!$httpProvider.defaults.headers.get) {
+          $httpProvider.defaults.headers.get = {};    
+      }    
+
+      // Answer edited to include suggestions from comments
+      // because previous version of code introduced browser-related errors
+
+      //disable IE ajax request caching
+      $httpProvider.defaults.headers.get['If-Modified-Since'] = 'Mon, 26 Jul 1997 05:00:00 GMT';
+      // extra
+      $httpProvider.defaults.headers.get['Cache-Control'] = 'no-cache';
+      $httpProvider.defaults.headers.get['Pragma'] = 'no-cache';
+    }]);
+    */
+
+    </script>
+  </body>
+</html>

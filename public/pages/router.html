@@ -1,0 +1,106 @@
+    <!DOCTYPE html>
+    <html ng-app="scotchApp">
+    <head>
+      <!-- SCROLLS -->
+      <!-- load bootstrap and fontawesome via CDN -->
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+
+      <!-- SPELLS -->
+      <!-- load angular and angular route via CDN -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.js"></script>
+
+    </head>
+    <body ng-controller="mainController">
+
+
+        <!-- HEADER AND NAVBAR -->
+        <header>
+            <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Angular Routing Example</a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
+                    <li><a href="#contact/"><i class="fa fa-comment"></i> Contact</a></li>
+                </ul>
+            </div>
+            </nav>
+        </header>
+
+        <!-- MAIN CONTENT AND INJECTED VIEWS -->
+    <!-- MAIN CONTENT AND INJECTED VIEWS -->
+    <div id="main">
+      <!--{{ message }}-->
+        <div ng-view></div>
+
+        <!-- angular templating -->
+        <!-- this is where content will be injected -->
+    </div>
+  <script>
+// script.js
+
+    // create the module and name it scotchApp
+        // also include ngRoute for all our routing needs
+    var scotchApp = angular.module('scotchApp', ['ngRoute']);
+
+    // configure our routes
+    scotchApp.config(function($routeProvider) {
+        $routeProvider
+
+            // route for the home page
+            .when('/', {
+                templateUrl : 'home.html',
+                controller  : 'mainController'
+            })
+
+            // route for the about page
+            .when('/about', {
+                templateUrl : 'about.html',
+                controller  : 'aboutController',
+                data : 'test1'
+            })
+
+            // route for the contact page
+            .when('/contact/:first/:last', {
+                templateUrl : 'contact.html',
+                controller  : 'contactController',
+                data : 'test2'
+            });
+            
+           // $locationProvider.html5Mode(true);
+            
+    });
+
+    // create the controller and inject Angular's $scope
+    scotchApp.controller('mainController', function($scope) {
+        // create a message to display in our view
+        $scope.message = 'Everyone come and see how good I look!';
+    });
+
+    scotchApp.controller('aboutController', function($scope, $route, $location) {
+        $scope.message = 'Look! I am an about page.';
+        $scope.msg = $route.current.data;
+        $scope.loadView2=function(){
+          $location.path('/contact/'+$scope.firstname+'/'+$scope.lastname);
+        }
+    });
+
+    scotchApp.controller('contactController', function($scope,$route, $routeParams) {
+        $scope.message = 'Contact us! JK. This is just a demo.';
+
+        $scope.first = $routeParams.first;
+        $scope.last = $routeParams.last;
+
+        $scope.msg = $route.current.data;
+    });
+
+  </script>
+    </body>
+    </html>
+
+

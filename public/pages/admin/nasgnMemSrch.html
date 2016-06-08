@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html ng-app="adminApp">
+  <head>
+  
+    <!--meta에 설정하는 경우-->
+	<meta http-equiv="Content-Language" content="ko" >
+	
+	<!--html5 언어설정-->
+    <meta charset="UTF-8">
+	
+	<!--모바일 웹을 위한 설정-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!--웹 문서에 대한 제작자 설정-->
+	<meta name="author" content="firstsoft">
+	
+	<!--웹 문서에 대한 설명 설정-->
+	<meta name="description" content="파라메딕 로그인 페이지입니다.">
+	
+	<!--웹 문서에 대한 키워드 설정-->
+	<meta name="keywords" content="파라메딕,치과,보험>
+	
+	<!--모바일 웹을 위한 설정-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	
+	<!--브라우저 호환성 설정-->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+
+
+    <title>미배정고객리스트</title>
+
+
+
+	<!--로그인-->
+	<link rel="stylesheet" href="pages/css/nasgnMemSrch.css">
+	  
+
+  </head>
+  
+  
+  <body>
+
+<!-- about.html -->
+	<div class="row row-broken"><!--섹션1-->
+	  <div class="col-md-11">
+		<ol class="breadcrumb">
+		 <li><a href="#"><i class="fa fa-th-large" aria-hidden="true"></i></a></li>		
+         <li>{{ message }}</li>
+         <li> Title : {{ msg }}</li>
+		</ol>
+	  </div>	
+    </div>
+
+    <div ng-show="showUser" class="jumbotron text-center">
+        <h4>Asynchronous results : {{tUser}}</h4>
+
+        <pre>Model: {{obj.dentName}}/{{obj.mobile}} </pre>
+
+        <input type="text" ng-change="hideDentalInfo()" ng-model="obj" placeholder="Dental Info loaded via $http" typeahead="obj as (obj.dentName + ' / ' + obj.mobile) for obj in getDentalCode($viewValue)" typeahead-loading="loadingMemcode" typeahead-on-select='onSelect($item, $model, $label)' class="form-control" kr-input>
+        <i ng-show="loadingMemcode" class="glyphicon glyphicon-refresh"></i>
+
+        <button ng-click="saveUser()">saveUser</button>
+        <button ng-click="clsShowUser()">close</button>
+
+    </div>
+
+        <button ng-click="refreshUserList()">refresh</button>
+        <p>{{ test_string }}</p>
+
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2" style="margin-bottom: 30px;margin-top: 30px;">
+          <veasy-table list="people" selected-items="selecteds" config="config"></veasy-table>
+        </div>
+      </div>
+
+<!--
+
+	<div>
+
+      <div class="page-header">
+        <h1>SiTable Example</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <p>Simple example where all the data is <em>downloaded
+            once</em>. All sorting and filtering is handled on the
+            client side.
+          </div>
+        </div>
+
+        <form class="form">
+          <div class="form-group">
+            <label>Filter</label>
+            <input type="text" class="form-control" ng-model="filter.$" placeholder="filter">
+          </div>
+        </form>
+
+        <table class="table" si-table>
+          <thead>
+            <tr>
+              <th sort-by="number">#</th>
+              <th sort-by="title">Title</th>
+              <th sort-by="user.login">User</th>
+              <th sort-by="created_at" sort-init="desc">Created At</th>
+              <th>Labels</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="issue in issues | filter:filter">
+              <td class="text-muted">#{{ issue.number }}</td>
+              <td><strong><a href="{{ issue.html_url }}">{{ issue.title }}</a></strong></td>
+              <td><a href="{{ issue.user.html_url }}">{{ issue.user.login }}</td>
+                <td>{{ issue.created_at | date }}</td>
+                <td>
+                  <span ng-repeat="label in issue.labels">
+                    <span class="label label-default"
+                    style="background-color: #{{ label.color }};">
+                    {{ label.name }}
+                  </span>
+                  <br>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5">
+                <si-table-pagination limit="10" />
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+        
+        <div class="alert alert-info" ng-if="!issues">
+          Loading ...
+        </div>
+
+	</div>    
+
+ -->
+ 
+   </body>
+</html>	

@@ -1,0 +1,47 @@
+
+
+
+
+	  <!--로그인-->
+	  <link rel="stylesheet" href="pages/css/cmpltMemSrch.css">
+	  
+
+
+  
+  
+
+
+
+		<div class="row row-broken"><!--섹션1-->
+			<div class="col-md-11">
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fa fa-th-large" aria-hidden="true"></i></a></li>				
+					<li>{{ message }}</li>
+					<li> Title : {{ msg }}</li>
+				</ol>
+			</div>		
+		</div><!--//섹션1-->
+
+		<div ng-show="showUser" class="jumbotron text-center">
+
+			<p>Member Name : {{ memName }}</p>
+			<p>Member Birth : {{ memBirth }}</p>
+			<p>Member Address : {{ memAddress }}</p>
+			<p>Member Mobile : {{ memMobile }}</p>
+			<p>Dental Clinic : {{ dental }}</p>
+			<img ng-src="data:image/jpg;base64,{{imgSrc}}"><br/><br/>
+			<button ng-click="clsShowUser()">close</button>
+
+		</div>
+
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2" style="margin-bottom: 30px;margin-top: 30px;">
+			  <veasy-table list="people" selected-items="selecteds" config="config"></veasy-table>
+			</div>
+		</div>
+        <p>{{ test_string }}</p>
+		
+	
+
+
+

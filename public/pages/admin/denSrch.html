@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html ng-app="adminApp">
+  <head>
+  
+    <!--meta에 설정하는 경우-->
+	<meta http-equiv="Content-Language" content="ko" >
+	
+	<!--html5 언어설정-->
+    <meta charset="UTF-8">
+	
+	<!--모바일 웹을 위한 설정-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!--웹 문서에 대한 제작자 설정-->
+	<meta name="author" content="firstsoft">
+	
+	<!--웹 문서에 대한 설명 설정-->
+	<meta name="description" content="파라메딕 로그인 페이지입니다.">
+	
+	<!--웹 문서에 대한 키워드 설정-->
+	<meta name="keywords" content="파라메딕,치과,보험>
+	
+	<!--모바일 웹을 위한 설정-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	
+	<!--브라우저 호환성 설정-->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+
+
+    <title>치과검색</title>
+
+
+	  <!--로그인-->
+	  <link rel="stylesheet" href="pages/css/denSrch.css">
+	  
+  </head>
+  
+  
+  <body>	 
+ 
+<!-- about.html -->
+    <div class="row row-broken"><!--섹션1-->
+	 <div class="col-md-11">
+	  <ol class="breadcrumb">
+		<li><a href="#"><i class="fa fa-th-large" aria-hidden="true"></i></a></li>
+        <li>{{ message }}</li>
+        <li> Title : {{ msg }}</li>
+	  </ol>	
+	 </div>	
+    </div><!--//섹션1-->		
+
+    <!--
+    <pre>Model: {{asyncMemcode}}</pre>
+    <input type="text" ng-model="asyncMemcode" placeholder="member code loaded via $http" uib-typeahead="name for name in getMemCode($viewValue)" typeahead-loading="loadingMemcode" typeahead-no-results="noMemcode" class="form-control">
+    -->
+
+
+    <!--
+    <pre>Model: {{obj.dentName}}/{{obj.mobile}} </pre>
+    <pre>activeName: {{activeName}}</pre>
+    <pre>activeCode: {{activeCode}}</pre>
+    -->
+    <!--
+    <input type="text" ng-model="obj" placeholder="Dental Info loaded via $http" uib-typeahead="obj as (obj.dentName + ' / ' + obj.mobile) for obj in getDentalCode($viewValue)" typeahead-loading="loadingMemcode" typeahead-no-results="noMemcode" typeahead-on-select='onSelect($item, $model, $label)' class="form-control">
+    <i ng-show="loadingMemcode" class="glyphicon glyphicon-refresh"></i>
+    <div ng-show="noMemcode">
+      <i class="glyphicon glyphicon-remove"></i> No Results Found
+    </div>
+    -->
+
+
+<!--
+    <h4>testMemcode for typeahead's dropdown</h4>
+    <pre>Test Model: {{testMemcode | json }}</pre>
+-->
+	<div class="denSrch-search">
+		<h4>Asynchronous results</h4>	
+		
+		<input type="text" ng-model="obj" placeholder="Dental Info loaded via $http" typeahead="obj as (obj.dentName + ' / ' + obj.mobile) for obj in getDentalCode($viewValue)" typeahead-loading="loadingMemcode" typeahead-on-select='onSelect($item, $model, $label)' class="form-control" kr-input>
+		<i ng-show="loadingMemcode" class="glyphicon glyphicon-refresh"></i>
+	</div>
+
+
+    
+    <div class="container-fluid-denSrch denSrch-search-table">
+        
+        <table class="table table-striped table-hover table-bordered">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Dental Name</th>
+              <th>Doctor Name</th>
+              <th>Address</th>
+              <th>Mobile</th>
+              <th>Tel</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="obj in objects | filter : paginate">
+              <td>{{obj.dentIdx}}</td>
+              <td>{{obj.dentName}}</td>
+              <td>{{obj.doctName}}</td>
+              <td>{{obj.address}}</td>
+              <td>{{obj.mobile}}</td>
+              <td>{{obj.tel}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <pagination total-items="totalItems" ng-model="currentPage"
+          max-size="5" boundary-links="true"
+          items-per-page="numPerPage" previous-text="<" next-text=">" first-text="<<" last-text=">>" class="pagination-sm">
+        </pagination>
+
+    </div>
+    
+        <p>{{ test_string }}</p>
+
+<!--
+<table st-table="rowCollection" class="table">
+<thead>
+<tr>
+	<th st-sort="firstName">first name</th>
+	<th st-sort="lastName">last name</th>
+	<th st-sort="birthDate">birth date</th>
+	<th st-sort="balance">balance</th>
+	<th>email</th>
+</tr>
+</thead>
+<tbody>
+<tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in rowCollection">
+	<td>{{row.firstName | uppercase}}</td>
+	<td>{{row.lastName}}</td>
+	<td>{{row.birthDate | date}}</td>
+	<td>{{row.balance | currency}}</td>
+	<td><a ng-href="mailto:{{row.email}}">email</a></td>
+</tr>
+</tbody>
+</table>
+-->
+
+  </body>
+</html>	

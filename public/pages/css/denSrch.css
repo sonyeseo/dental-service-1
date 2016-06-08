@@ -1,0 +1,269 @@
+@charset "utf-8";
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800,900,200);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+
+
+
+
+/*breadcrumb메뉴*/
+
+
+.row.row-broken {
+	padding-left: 130px;
+	
+}
+
+/*메뉴 조정*/
+
+@media (max-width:800px){
+	.row.row-broken {
+	padding-left: 86px;
+	}	
+}
+
+@media (max-width:780px){
+	.row.row-broken {
+	width:80%;
+	margin-left: 20px;
+	}	
+}
+
+.row {
+	margin:0 -20px 20px -20px;
+	padding-bottom: 20px;
+}
+
+.row:before,
+.row:after {
+	content:"";
+	display: table;
+	clear: both;
+}
+
+.row.row-broken > div[class*='col-'] {
+	padding-top: 0;
+	padding-left: 0;
+}
+
+.row.row-broken > div[class*='col-']:last-child{
+	padding-right: 0;
+}
+
+@media (max-width: 1200px){
+	.row.row-broken .col-md-12:last-child{
+		padding-bottom: 0;
+	}
+}
+
+/*breadcrumb*/
+
+.breadcrumb {
+	border-radius: 0;
+	background-color: transparent;
+	margin-bottom: 0;
+	box-shadow: 1px 0px 12px 1px #E0E0E0;
+	list-style: none;
+}
+
+.breadcrumb li {
+	font-size: 18px;
+	font-weight: 600;
+	color: #00BCD4;
+	display: inline-block;
+}
+
+.breadcrumb li a {
+	text-decoration: none;
+	background-color: transparent;
+	color: #00BCD4;
+}
+
+.breadcrumb li i{
+	font-size: 22px;
+}
+
+.breadcrumb > .active {
+	color: #777777;
+}
+
+.breadcrumb li + li:before {
+	content: "\f054";
+	font-family: "FontAwesome";
+	font-size: 14px;
+	padding: 0 10px;
+	color: #00BCD4;
+	vertical-align: text-top;
+}
+
+@media (width:866px){
+	.table_container{
+		width: 60%;
+		margin-left: 20px;
+		}
+}
+
+/*등록창*/
+
+
+
+
+label {
+	margin-bottom: 6px;
+	margin-right: 40px;
+}
+
+ .form-group {
+    margin: 0 0 10px;
+    
+    label {
+      display: block;
+      margin: 0 0 5px;
+      font-size: 0.9em;
+      font-weight: 200;
+    }
+    
+    input {
+      display: block;
+      width: 94%;
+      margin: 0 0 5px;
+      font-weight: 200;
+      height: 30px;
+      line-height: 30px;
+      padding: 0 5px;
+      color: #C8B588;
+      font-weight: 300;
+      outline: none;
+      box-shadow: none;
+      border: 1px solid #ddd;
+      
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+      
+      &:hover {
+        border: 1px solid #bbb;
+      }
+    }
+  }
+  
+  .checkbox {
+    margin: 10px 0 15px;
+    
+    [type="checkbox"]:checked,
+    [type="checkbox"]:not(:checked)
+    {
+        position: absolute;
+        left: -9999px;
+    }
+    [type="checkbox"]:checked + label,
+    [type="checkbox"]:not(:checked) + label
+    {
+        position: relative;
+        padding-left: 28px;
+        cursor: pointer;
+        line-height: 20px;
+        display: inline-block;
+        color: #C8B588;
+    }
+    [type="checkbox"]:checked + label:before,
+    [type="checkbox"]:not(:checked) + label:before
+    {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 18px;
+        height: 18px;
+        border: 1px solid #ddd;
+        background: #fff;
+    }
+    [type="checkbox"]:checked + label:after,
+    [type="checkbox"]:not(:checked) + label:after
+    {
+        content: '';
+        width: 8px;
+        height: 8px;
+        background: #00a69c;
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+    }
+    [type="checkbox"]:not(:checked) + label:after
+    {
+        opacity: 0;
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+        -o-transform: scale(0);
+        -ms-transform: scale(0);
+        transform: scale(0);
+    }
+    [type="checkbox"]:checked + label:after
+    {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -o-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+    
+    label {
+      padding-top: 1px;
+      font-size: 0.9em;
+      color: #C8B588;
+    }
+  }
+    
+  button {
+    display: block;
+    width: 30%;
+	margin: 0 auto;
+    background: #FF8864;
+    border: none;
+    height: 51px;
+    line-height: 35px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    
+    &:hover {
+      background: #444;
+    }
+  }
+}
+
+.register {
+  text-align: center;
+  color: #9F8C5F;
+  font-size: 0.9em;
+  
+  a {
+    display: block;
+    color: #FF8864;
+    font-size: 1.1em;
+    font-weight: 500;
+    padding: 5px 0;
+  }
+}
+
+/*신규치과등록페이지 중간부분*/
+
+.denSrch-search {
+	width: 70%;
+	margin: 0 auto;
+}
+
+.container-fluid-denSrch {
+	width: 70%;
+	margin: 60px auto;
+	
+}
+

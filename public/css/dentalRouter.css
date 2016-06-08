@@ -1,0 +1,402 @@
+@charset "uft-8";
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800,900,200);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+
+/*****초기화*****/
+
+*{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: Helvetica, sans-serif;
+}
+
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+	-webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+	height: 100%;
+}
+
+
+body{
+	overflow-y: hidden;
+	overflow-x: hidden;
+	background-color: #fff;
+	color: #333333;
+	font-family: "Raleway" , sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+p {
+	font-size: 16px;
+	line-height: 36px;
+}
+
+input {
+	padding: 0;
+	border: none;
+	outline: none;
+}
+
+button {
+	border: none;
+	outline: none;
+}
+
+a[data-back-to-contacts] .arrow {
+	right: auto;
+	left: 0;
+}
+
+h5 {
+	font-size: 24px;
+}
+
+h6 {
+	font-size: 16px;
+}
+
+.font-weight-700 {
+	font-weight: 700;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.col-xs-12 {
+	width: 100%;
+}
+
+/*****wrap*****/
+.wrap-content {
+	padding: 0 0 41px 90px;
+	position: relative;
+	background: #fff;
+	width: 100%;
+	overflow: hidden;
+	/*background: #000;*/
+}
+
+@media (max-width: 768px){
+	.wrap-content {
+		padding-left: 64px;
+	}
+}
+
+/*****오른쪽*****/
+.aside {
+	width: 90px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	z-index:0;
+	background-color: #7bd9d8;
+	box-shadow: -8px 0 8px 8px #585B9C;
+}
+
+@media (max-width: 768px){
+	.aside {
+		width: 65px;
+		box-shadow: none !important;
+	}
+}
+
+/*로고*/
+.aside .btn-logo {
+	display: block;
+	height: 90px;
+	background:#00BCD4;
+}
+
+@media (max-width: 768px){
+	.aside .btn-logo {
+		height: 64px;
+		left: -15px;
+		width: 65px;
+		padding-bottom: 10px;
+	}
+	
+	.aside .btn-logo img {
+		width:65px;
+		height:60px;
+		
+	}
+}
+
+/*애니메이티드 전체 버튼*/
+.container {
+	cursor: pointer;
+	display: inline-block;
+	margin-top: 10px;
+	margin-left: 10px;
+	width: 60px;
+}
+
+.container:hover {
+	opacity: 0.5;
+}
+
+@media (max-width:768px){
+	.container {
+		margin-left: -3px;
+	}
+}
+
+.bar1, .bar2, .bar3 {
+	width: 35px;
+	height: 5px;
+	background-color: #fff;
+	margin: 6px 0;
+	transition: 0.4s;
+}
+
+@media (max-width:768px){
+	.bar1, .bar2, .bar3 {
+		margin-right: 100px;
+	}
+}
+
+/*프로필*/
+.aside .btn-profile {
+	width: 90px;
+	height: 90px;
+	cursor: pointer;
+	position: absolute;
+	top: 320px;
+	left: 0;
+}
+
+.aside .btn-profile img:hover {
+	opacity: 0.6;
+}
+
+.aside .btn-profile img {
+	margin-left: 21px;
+	width: 45px;
+}
+
+@media (max-width: 768px) {
+	.aside .btn-profile{
+		width: 60px;
+		left: -14px;
+	}
+}
+
+/*토글 fixed*/
+
+.toggle-fixed {
+	color: #fff;
+	cursor: pointer;
+	font-size: 36px;
+	width: 90px;
+	margin-bottom: 30px;
+	display: inline-block;
+	text-align: center;
+	opacity: 0.6;
+	position: absolute;
+	bottom: 0;
+	left: -3px;
+}
+
+.toggle-fixed:hover {
+	opacity: 0.5;
+}
+
+
+@media (max-width: 768px){
+	.toggle-fixed {
+		width: 64px;
+	}
+}
+
+@media (max-width: 480px){
+	.toggle-fixed {
+		display: none;
+	}
+}
+
+/*****헤더*****/
+
+.wrap-content .header {
+	background-color: #7bd9d8;
+	height: 90px;
+	/*z-index: 300;*/
+	box-shadow: 3px -8px 10px 8px #585B9C;
+	/*border:1px solid yellow;*/
+	
+}
+
+.wrap-content .header > .unit {
+	position: absolute;
+}
+
+.wrap-content .header > .unit.title {
+	color: #ffffff;
+	padding: 20px 0 0 20px;
+}
+
+/*글씨*/
+
+
+@media (max-width: 730px){
+	.unit.title h5 {
+		font-size:15px;
+	}
+}
+
+@media (max-width: 300px){
+	.unit.title h5 {
+		display: none;
+	}
+}
+
+.wrap-content .header > .unit.title .primary, .wrap-content .header > .unit.title .secondary {
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin-top: 10px;
+}
+
+/*시간*/
+
+.wrap-content .header > .unit.time {
+	position: absolute;
+	top: 3px;
+	right: 270px;
+	max-width: 140px;
+	color: #fff;
+	font-family: "Roboto", sans-serif;
+	font-weight: bold;
+	text-align: center;
+	padding: 0 20px;
+	cursor: pointer;
+	transition-duration: 1s;
+	-webkit-transition-duration: 1s;
+}
+
+.wrap-content .header > .unit.time span:nth-child(1) {
+	font-size: 38px;
+}
+
+.wrap-content .header > .unit.time span {
+	display: block;
+}
+
+.wrap-content .header > .unit.time span:nth-child(2) {
+	font-size: 16px;
+}
+
+.wrap-content .header > .unit.time span {
+	display: block;
+}
+
+.wrap-content .header > .unit.time:hover {
+	color:#000;
+}
+
+@media (max-width: 1200px) {
+	.wrap-content .header > .unit.time {
+		display: none;
+	}
+}
+
+/*unit backet*/
+
+.wrap-content .header > .unit {
+	position: absolute;
+}
+
+.wrap-content .header > .unit.backet {
+	top: 0;
+	right: 0;
+	width: 100%;
+}
+
+.side-btn {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 90px;
+	height: 90px;
+	line-height: 90px;
+	text-align: center;
+	color: #ffffff;
+	font-size: 28px;
+	background: #00BCD4;
+	cursor: pointer;
+	z-index: 0;
+}
+
+@media (max-width: 768px){
+	.side-btn {
+		width: 64px;
+		height: 64px;
+		line-height: 64px;
+	}
+}
+
+/*중심화면*/
+.wrap-content .content {
+	padding: 0px 13px 0;
+	background-color: #00BCD4;
+}
+
+/*서브 메뉴*/
+
+.sub_menu{}
+.sub_menu .sub_container{overflow:hidden;}
+.sub_menu .sub_container .sub_name{float:left; margin:10px 0 0 0px;}
+.sub_menu .sub_container .sub_name a{ text-decoration:none; font-size:1em; color:#fff; font-weight:bold;}
+
+.sub_menu ul{margin-left:235px;}
+.sub_menu ul li{display:inline-block; padding:11px 0 2px 42px;font-size:15px; font-weight:bold;}
+.sub_menu ul li a{ text-decoration: none; color:#fff;}
+.sub_menu ul li a:hover{color:#000;}
+.sub_menu ul li i {margin-right:2px;}
+
+@media (max-width:1154px){
+	.sub_menu ul{
+    margin-left: 172px;}
+}
+
+@media (max-width:580px){
+	.sub_menu ul{ margin-left: -64px;}
+	.sub_menu .sub_container .sub_name {float:none;}
+}
+
+@media (max-width:389px){
+	.sub_menu .sub_container .sub_name a{display:none;}
+	.sub_menu ul {
+    margin-left: -204px;}	
+}
+
+@media (max-width:832px){
+	.sub_menu li{
+		display: none;
+		padding: 0;
+		text-decoration: none;
+		margin-left: 130px;}
+}
+
+
+
+
+	
+
+
+
+
