@@ -54,46 +54,8 @@
 		</div>
 	 </div><!--//섹션1-->
 	 
-	 <div class="wrapper">
-		<form class="form-signin"  novalidate>
-			<label>아이디</label>
-			<input id="dentalid" name="dentalid" type="text" placeholder="아이디" class="form-control" ng-model="dentalid" ng-required="true" autocomplete="off" /><br/>
-			<span ng-show="denRegForm.dentalid.$error.required">아이디 이 필요합니다.</span>
-			</span>			
-			<label>비밀번호</label>
-			<input id="dentalpwd" name="dentalpwd" type="text" placeholder="비밀번호" class="form-control" ng-model="dentalpwd"  ng-required="true" autocomplete="off" /><br/>
-			<span style="color:red" ng-show="denRegForm.dentalpwd.$dirty && denRegForm.dentalpwd.$invalid">
-			<span ng-show="denRegForm.dentalpwd.$error.required">비 번 이 필요합니다.</span>
-			</span>			
-			<label>치과명</label>
-			<input id="dentalname" name="dentalname" type="text" placeholder="치과명" class="form-control" ng-model="dentalname"  ng-required="true" autocomplete="off" kr-input /><br/>
-            <span style="color:red" ng-show="denRegForm.dentalname.$dirty && denRegForm.dentalname.$invalid">
-            <span ng-show="denRegForm.dentalname.$error.required">치과명 이 필요합니다.</span>
-            </span>			
-			<label>원장명</label>
-			<input id="doctorname" name="doctorname" type="text" placeholder="원장명" class="form-control" ng-model="doctorname"  ng-required="true" autocomplete="off" kr-input /><br/>
-            <span style="color:red" ng-show="denRegForm.doctorname.$dirty && denRegForm.doctorname.$invalid">
-            <span ng-show="denRegForm.doctorname.$error.required">원장명 이 필요합니다.</span>
-            </span>			
-			<label>주소</label>
-			<input id="address" name="address" type="text" placeholder="주소" class="form-control" ng-model="address"  ng-required="true" autocomplete="off" kr-input /><br/>
-            <span style="color:red" ng-show="denRegForm.address.$dirty && denRegForm.address.$invalid">
-            <span ng-show="denRegForm.address.$error.required">주 소 이 필요합니다.</span>
-            </span>			
-			<label>휴대폰</label>
-			<input id="mobile" name="mobile" type="text" placeholder="휴대폰" class="form-control" ng-model="mobile" ng-required="true" autocomplete="off"/><br/>
-            <span style="color:red" ng-show="denRegForm.mobile.$dirty && denRegForm.mobile.$invalid">
-            <span ng-show="denRegForm.mobile.$error.required">휴대폰 이 필요합니다.</span>
-            </span>			
-			<label>전화번호</label>
-			<input id="tel" name="tel" type="text" placeholder="전화번호" class="form-control" ng-model="tel" ng-required="true" autocomplete="off" /><br/>
-			<span style="color:red" ng-show="denRegForm.tel.$dirty && denRegForm.tel.$invalid">
-			<span ng-show="denRegForm.tel.$error.required">전화번호 이 필요합니다.</span>
-			</span>			
-			<button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="saveDentalView()" ng-disabled="denRegForm.dentalid.$dirty && denRegForm.dentalid.$invalid || denRegForm.dentalpwd.$dirty && denRegForm.dentalpwd.$invalid || denRegForm.dentalpwd.$dirty && denRegForm.dentalname.$invalid || denRegForm.dentalname.$dirty && denRegForm.doctorname.$invalid || denRegForm.address.$dirty && denRegForm.address.$invalid || denRegForm.mobile.$dirty && denRegForm.mobile.$invalid || denRegForm.tel.$dirty && denRegForm.tel.$invalid">등록</button>			
-		</form>
-
-	 </div>
+	<div class="wrapper" style="border:1px solid red;">
+	</div>
 	
   </body>
 </html>			
