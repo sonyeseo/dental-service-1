@@ -130,6 +130,32 @@
 	}
 }
 
+@media only screen and (min-width: 480px){
+	h1{
+		font: 500 160%/100% Ubuntu;
+		margin: 0 0 20px 10px;
+	}
+	label,
+	input {
+		display: inline-block;
+	}
+	#contact label{
+		font-size: 100%;
+		width: 20%;
+		text-align: right;
+	}
+	#contact label[for=message]{
+		vertical-align: top;
+	}
+	#contact input {
+		width: 66.6667%;
+	}
+	#contact .button {
+		margin-left: 24%;
+		font-size: 90%;
+	}
+}
+
 /*등록창*/
 
 .res_wrapper{
