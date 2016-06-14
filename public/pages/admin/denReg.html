@@ -54,48 +54,48 @@
 		</div>
 	 </div><!--//섹션1-->
 	 
-	 <div class="wrapper" style="border:1px solid red;">
+	 <div class="res_wrapper">
 		<div class="res_container">
 			<h1>Contact Form</h1>
 			<form id="contact">
 			
 				<div class="line">
 					<label for="dentalid">아이디:</label>
-					<input type="text" name="dentalid" id="dentalid"/>
+					<input type="text" name="dentalid" id="dentalid" ng-model="dentalid"/>
 				</div>
 				
 				<div class="line">
 					<label for="dentalpwd">비밀번호:</label>
-					<input type="dentalpwd" name="dentalpwd" id="dentalpwd"/>
+					<input type="dentalpwd" name="dentalpwd" id="dentalpwd" ng-model="dentalpwd"/>
 				</div>
 				
 				<div class="line">
 					<label for="dentalname">치과명:</label>
-					<input type="dentalname" name="dentalname" id="dentalname"/>
+					<input type="dentalname" name="dentalname" id="dentalname" ng-model="dentalname"/>
 				</div>
 
 				<div class="line">
 					<label for="doctorname">원장명:</label>
-					<input type="doctorname" name="doctorname" id="doctorname"/>
+					<input type="doctorname" name="doctorname" id="doctorname" ng-model="doctorname"/>
 				</div>
 
 				<div class="line">
 					<label for="address">주소:</label>
-					<input type="address" name="address" id="address"/>
+					<input type="address" name="address" id="address" ng-model="address"/>
 				</div>
 
 				<div class="line">
 					<label for="mobile">휴대폰</label>
-					<input type="mobile" name="mobile" id="mobile"/>
+					<input type="mobile" name="mobile" id="mobile" ng-model="mobile"/>
 				</div>
 
 				<div class="line">
 					<label for="tel">전화번호</label>
-					<input type="tel" name="tel" id="tel"/>
+					<input type="tel" name="tel" id="tel" ng-model="tel"/>
 				</div>
 
 				<div class="line">
-					<input type="submit" name="submit" value="Submit" class="button" />
+					<input type="submit" name="submit" value="Submit" class="button" ng-click="saveDentalView()"/>
 				</div>
 						
 				
