@@ -133,6 +133,14 @@
 	border-top: 1px solid #EBEBEB;
 }
 
+#contact input {
+	color: #666;
+	box-sizing: border-box;
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	padding: 5px 8px;
+}
+
 
 
 
