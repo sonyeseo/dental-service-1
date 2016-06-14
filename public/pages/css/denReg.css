@@ -111,6 +111,12 @@
 	margin-left: 150px;
 }
 
+@media (max-width: 809px){
+	.res_wrapper{
+	 margin-left: 80px;
+	}	
+}
+
 
 
 
