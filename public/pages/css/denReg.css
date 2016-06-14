@@ -103,6 +103,33 @@
 		}
 }
 
+/*등록창 - 미디어 쿼리*/
+
+@media only screen and (min-width: 240px){
+	h1{
+		font: 500 200%/100% Ubuntu;
+		margin: 0 0 30px 10px;
+	}
+	label{
+		display: block;
+		margin: 0 0 10px 10px;
+	}
+	#contact label {
+		width: 23%;
+		font-size: 150%;
+		text-align: left;
+	}
+	#contact input {
+		width: 94.3%;
+		font-size: 100%;
+		margin-left: 10px;
+	}
+	#contact .button {
+		margin-left: 10px;
+		font-size: 130%;
+	}
+}
+
 /*등록창*/
 
 .res_wrapper{
