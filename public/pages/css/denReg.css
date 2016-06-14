@@ -147,5 +147,18 @@
 	box-shadow: inset 1px 2px 3px #CCC;
 }
 
+#contact .button {
+	border: 1px solid #1A4F82;
+	padding: 10px 15px;
+	border-radius: 3px;
+	color: #CFE6FC;
+	font-family: Ubuntu;
+	font-weight: 300;
+	background-color: #1A4F82;
+	background-image: linear-gradient(#215F9C, #1A4F82);
+	-o-background-image: linear-gradient(#215F9C, #1A4F82);
+	cursor: pointer;
+}
+
 
 
