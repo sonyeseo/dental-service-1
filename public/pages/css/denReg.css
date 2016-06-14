@@ -106,7 +106,7 @@
 /*등록창*/
 
 .res_wrapper{
-	box-shadow: inset 1px 2px 3px #CCC;
+	border: 1px solid red;
 	width: 80%;
 	margin-left: 150px;
 	font-family: Ubuntu;
