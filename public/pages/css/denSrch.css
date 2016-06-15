@@ -267,3 +267,19 @@ label {
 	
 }
 
+/*가운데 부분 테두리*/
+
+.res_wrapper{
+	border: 3px solid #EEEEEE;
+	width: 80%;
+	margin-left: 150px;
+	font-family: Ubuntu;
+	font-weight: 400;
+	color: #666;
+}
+
+.res_container{
+	max-width: 600px;
+	margin: 3.33334% auto;
+}
+

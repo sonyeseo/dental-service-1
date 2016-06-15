@@ -74,47 +74,52 @@
     <h4>testMemcode for typeahead's dropdown</h4>
     <pre>Test Model: {{testMemcode | json }}</pre>
 -->
-	<div class="denSrch-search">
-		<h4>Asynchronous results</h4>	
+
+    <div class="res_wrapper"><!--res_wrapper-->
+	    <div class="res_container"><!--res_container-->
+			<div class="denSrch-search">
+				<h4>Asynchronous results</h4>	
+				
+				<input type="text" ng-model="obj" placeholder="Dental Info loaded via $http" typeahead="obj as (obj.dentName + ' / ' + obj.mobile) for obj in getDentalCode($viewValue)" typeahead-loading="loadingMemcode" typeahead-on-select='onSelect($item, $model, $label)' class="form-control" kr-input>
+				<i ng-show="loadingMemcode" class="glyphicon glyphicon-refresh"></i>
+			</div>
+
+
+			
+			<div class="container-fluid-denSrch denSrch-search-table">
+				
+				<table class="table table-striped table-hover table-bordered">
+				  <thead>
+					<tr>
+					  <th>ID</th>
+					  <th>Dental Name</th>
+					  <th>Doctor Name</th>
+					  <th>Address</th>
+					  <th>Mobile</th>
+					  <th>Tel</th>
+					</tr>
+				  </thead>
+				  <tbody>
+					<tr ng-repeat="obj in objects | filter : paginate">
+					  <td>{{obj.dentIdx}}</td>
+					  <td>{{obj.dentName}}</td>
+					  <td>{{obj.doctName}}</td>
+					  <td>{{obj.address}}</td>
+					  <td>{{obj.mobile}}</td>
+					  <td>{{obj.tel}}</td>
+					</tr>
+				  </tbody>
+				</table>
+				<pagination total-items="totalItems" ng-model="currentPage"
+				  max-size="5" boundary-links="true"
+				  items-per-page="numPerPage" previous-text="<" next-text=">" first-text="<<" last-text=">>" class="pagination-sm">
+				</pagination>
+
+			</div>
+		</div><!--//res_container-->	
+	</div><!--//res_wrapper-->	
 		
-		<input type="text" ng-model="obj" placeholder="Dental Info loaded via $http" typeahead="obj as (obj.dentName + ' / ' + obj.mobile) for obj in getDentalCode($viewValue)" typeahead-loading="loadingMemcode" typeahead-on-select='onSelect($item, $model, $label)' class="form-control" kr-input>
-		<i ng-show="loadingMemcode" class="glyphicon glyphicon-refresh"></i>
-	</div>
-
-
-    
-    <div class="container-fluid-denSrch denSrch-search-table">
-        
-        <table class="table table-striped table-hover table-bordered">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Dental Name</th>
-              <th>Doctor Name</th>
-              <th>Address</th>
-              <th>Mobile</th>
-              <th>Tel</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="obj in objects | filter : paginate">
-              <td>{{obj.dentIdx}}</td>
-              <td>{{obj.dentName}}</td>
-              <td>{{obj.doctName}}</td>
-              <td>{{obj.address}}</td>
-              <td>{{obj.mobile}}</td>
-              <td>{{obj.tel}}</td>
-            </tr>
-          </tbody>
-        </table>
-        <pagination total-items="totalItems" ng-model="currentPage"
-          max-size="5" boundary-links="true"
-          items-per-page="numPerPage" previous-text="<" next-text=">" first-text="<<" last-text=">>" class="pagination-sm">
-        </pagination>
-
-    </div>
-    
-        <p>{{ test_string }}</p>
+			<p>{{ test_string }}</p>
 
 <!--
 <table st-table="rowCollection" class="table">
