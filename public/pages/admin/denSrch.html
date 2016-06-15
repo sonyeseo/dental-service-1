@@ -80,7 +80,7 @@
 			<div class="denSrch-search">
 				<h4>치과 검색</h4>	
 				
-				<input type="text" ng-model="obj" placeholder="Dental Info loaded via $http" typeahead="obj as (obj.dentName + ' / ' + obj.mobile) for obj in getDentalCode($viewValue)" typeahead-loading="loadingMemcode" typeahead-on-select='onSelect($item, $model, $label)' class="form-control" kr-input>
+				<input type="text" ng-model="obj" placeholder="치과를 입력해주세요" typeahead="obj as (obj.dentName + ' / ' + obj.mobile) for obj in getDentalCode($viewValue)" typeahead-loading="loadingMemcode" typeahead-on-select='onSelect($item, $model, $label)' class="form-control" kr-input>
 				<i ng-show="loadingMemcode" class="glyphicon glyphicon-refresh"></i>
 			</div>
 
