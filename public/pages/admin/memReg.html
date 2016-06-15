@@ -57,7 +57,7 @@
 			<form id="contact">
 				
 				<div class="line">
-					<label>회원이름</label>
+					<label>회원이름:</label>
 					<input id="name" name="name" type="text" placeholder="회원이름" ng-model="name" ng-required="true" kr-input ng-minlength="2" />
 					<span style="color:red" ng-show="memRegForm.name.$dirty && memRegForm.name.$invalid">
 					<span ng-show="memRegForm.name.$error.required">회원 이름 이 필요합니다.</span>
@@ -65,7 +65,7 @@
 				</div>
 				
 				<div class="line">
-					<label>생년월일</label>
+					<label>생년월일:</label>
 					<input id="birth" name="birth" type="text" placeholder="생년월일" ng-model="birth" ng-required="true" ng-minlength="6"/>
 					<span style="color:red" ng-show="memRegForm.birth.$dirty && memRegForm.birth.$invalid">
 					<span ng-show="memRegForm.birth.$error.required">생년 월일 이 필요합니다.</span>
@@ -73,14 +73,14 @@
 				</div>
 				
 				<div class="line">
-					<label>주소</label>
+					<label>주소:</label>
 					<input id="address" name="address" type="text" placeholder="주소" ng-model="address" ng-required="true" kr-input/>
 					<span style="color:red" ng-show="memRegForm.address.$dirty && memRegForm.address.$invalid">
 					<span ng-show="memRegForm.address.$error.required">주소가 필요합니다.</span>					
 				</div>
 				
 				<div class="line">
-					<label>휴대폰</label>
+					<label>휴대폰:</label>
 					<input id="mobile" name="mobile" type="text" placeholder="휴대폰" ng-model="mobile" ng-required="true" />
 					<span style="color:red" ng-show="memRegForm.mobile.$dirty && memRegForm.mobile.$invalid">
 					<span ng-show="memRegForm.mobile.$error.required">휴대폰 번호가 필요합니다.</span>					
