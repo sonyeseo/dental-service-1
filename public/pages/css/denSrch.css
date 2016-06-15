@@ -261,6 +261,10 @@ label {
 	margin: 0 auto;
 }
 
+.denSrch-search h4 {
+	font-weight: bold;
+}
+
 .container-fluid-denSrch {
 	width: 70%;
 	margin: 60px auto;
@@ -287,4 +291,6 @@ label {
 .res_container{
 	margin: 3.33334% auto;
 }
+
+
 
