@@ -95,7 +95,7 @@
 				</div>
 
 				<div class="line">
-					<input type="submit" name="Submit" value="전송" class="button" ng-click="saveDentalView()"/>
+					<input type="submit" name="Submit" value="전송" class="button" ng-click="saveDentalView()" ng-disabled="denRegForm.dentalid.$dirty && denRegForm.dentalid.$invalid || denRegForm.dentalpwd.$dirty && denRegForm.dentalpwd.$invalid || denRegForm.dentalpwd.$dirty && denRegForm.dentalname.$invalid || denRegForm.dentalname.$dirty && denRegForm.doctorname.$invalid || denRegForm.address.$dirty && denRegForm.address.$invalid || denRegForm.mobile.$dirty && denRegForm.mobile.$invalid || denRegForm.tel.$dirty && denRegForm.tel.$invalid"/>
 				</div>
 						
 				
