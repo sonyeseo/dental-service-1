@@ -142,3 +142,32 @@
 	height: 40px;
 }
 
+#contact input:focus {
+	outline: none;
+	box-shadow: inset 1px 2px 3px #CCC;
+}
+
+#contact .button {
+	border: 1px solid #1A4F82;
+	padding: 8px 15px;
+	border-radius: 3px;
+	color: #CFE6FC;
+	font-family: Ubuntu;
+	font-weight: 300;
+	background-color: #1A4F82;
+	background-image: linear-gradient(#215F9C, #1A4F82);
+	-o-background-image: linear-gradient(#215F9C, #1A4F82);
+	cursor: pointer;
+}
+
+#contact .button:hover {
+	-webkit-transition: all 0.5s ease-in-out 0s;
+	-moz-transition: all 0.5s ease-in-out 0s;
+	-o-transition: all 0.5s ease-in-out 0s;
+	transition: all 0.5s ease-in-out 0s;
+	background-image: linear-gradient(#2B75BD, #1F5F9C);
+	-o-background-image: linear-gradient(#2B75BD, #1F5F9C);
+	color: #FFF;
+	box-shadow: 2px 2px 3px #999;
+}
+
