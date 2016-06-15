@@ -278,8 +278,13 @@ label {
 	color: #666;
 }
 
+@media (max-width: 809px){
+	.res_wrapper{
+	margin-left: 80px;
+	}
+}
+
 .res_container{
-	max-width: 600px;
 	margin: 3.33334% auto;
 }
 
